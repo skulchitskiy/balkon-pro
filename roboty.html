@@ -227,6 +227,88 @@
         padding: 23px;
       }
     }
+  
+/* Галерея наших робіт */
+.works-gallery {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.works-gallery h2 {
+  margin-bottom: 12px;
+  text-align: center;
+  font-size: clamp(28px, 4vw, 40px);
+}
+
+.works-intro {
+  max-width: 650px;
+  margin: 0 auto 30px;
+  text-align: center;
+  line-height: 1.7;
+  color: #64748b;
+}
+
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.work-card {
+  margin: 0;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.10);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.work-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.16);
+}
+
+.work-card img {
+  display: block;
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.work-card figcaption {
+  padding: 16px;
+  color: #172554;
+  font-weight: 600;
+  text-align: center;
+}
+
+@media (max-width: 800px) {
+  .works-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .work-card img {
+    height: 210px;
+  }
+}
+
+@media (max-width: 520px) {
+  .works-gallery {
+    padding: 14px;
+  }
+
+  .works-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .work-card img {
+    height: 260px;
+  }
+}
+
   </style>
 </head>
 

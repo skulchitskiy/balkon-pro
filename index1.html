@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#101214" />
+  <meta name="description" content="Встановлення, скління, монтаж і демонтаж балконів. Сучасні рішення, якісний монтаж та консультація." />
+  <title>TopBalkon</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+    :root{--bg:#101214;--panel:#171a1d;--panel2:#1d2125;--text:#f4f5f6;--muted:#a4abb2;--line:#2b3035;--accent:#c5f467;--accent-dark:#a5d849;--radius:22px;--max:1180px}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;scroll-padding-top:88px}
+    body{font-family:Manrope,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    button,input,textarea,select{font:inherit}
+    button,a{ -webkit-tap-highlight-color:transparent }
+    .container{width:min(var(--max),calc(100% - 40px));margin-inline:auto}
+    .topbar{border-bottom:1px solid var(--line);color:var(--muted);font-size:12px}
+    .topbar .container{display:flex;justify-content:space-between;gap:16px;padding:9px 0}
+    .topbar span{display:flex;align-items:center;gap:8px}
+    .dot{width:7px;height:7px;background:var(--accent);border-radius:50%;display:inline-block}
+    header{position:sticky;top:0;z-index:20;background:rgba(16,18,20,.88);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .logo{display:flex;align-items:center;gap:11px;font-size:18px;font-weight:800;letter-spacing:-.6px;white-space:nowrap}
+    .logo-mark{width:38px;height:38px;display:grid;place-items:center;border-radius:12px;background:var(--accent);color:#151a0e;font-weight:900;font-size:19px}
+    .logo small{display:block;font-size:9px;color:var(--muted);letter-spacing:2px;font-weight:700;margin-top:-3px}
+    .nav-links{display:flex;align-items:center;gap:27px;color:#c5c9cd;font-size:13px}
+    .nav-links a:hover{color:var(--accent)}
+    .nav-actions{display:flex;align-items:center;gap:18px}
+    .phone{font-weight:700;font-size:13px;white-space:nowrap}
+    .btn{border:0;display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--accent);color:#151a0e;padding:14px 20px;border-radius:12px;font-weight:800;font-size:13px;cursor:pointer;transition:transform .2s,background .2s}
+    .btn:hover{background:#d4ff83;transform:translateY(-2px)}
+    .btn-outline{background:transparent;color:var(--text);border:1px solid #41474d}
+    .btn-outline:hover{background:#202529;color:var(--accent);border-color:var(--accent)}
+    .menu-toggle{display:none;background:none;border:1px solid var(--line);color:white;border-radius:10px;padding:8px 11px;font-size:21px}
+    .hero{padding:76px 0 70px;overflow:hidden;position:relative}
+    .hero:before{content:"";position:absolute;width:520px;height:520px;right:-130px;top:-100px;background:radial-gradient(circle,rgba(197,244,103,.09),transparent 68%);pointer-events:none}
+    .hero-grid{display:grid;grid-template-columns:1fr 1.02fr;gap:58px;align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--accent);font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:800;margin-bottom:20px}
+    .eyebrow:before{content:"";width:24px;height:1px;background:var(--accent)}
+    h1{font-size:clamp(38px,5.2vw,66px);line-height:1.07;letter-spacing:-3px;font-weight:800;max-width:620px}
+    h1 em{font-style:normal;color:var(--accent)}
+    .hero-copy{font-size:15px;color:var(--muted);max-width:480px;margin:23px 0 28px}
+    .hero-buttons{display:flex;gap:12px;flex-wrap:wrap}
+    .trust-row{display:flex;gap:26px;margin-top:35px;flex-wrap:wrap}
+    .trust-item{display:flex;align-items:center;gap:10px;font-size:11px;color:var(--muted)}
+    .trust-icon{width:34px;height:34px;border:1px solid var(--line);border-radius:10px;display:grid;place-items:center;color:var(--accent);font-size:16px}
+    .hero-visual{position:relative;min-height:440px;border-radius:28px;background:#22282c;overflow:hidden;border:1px solid #343b40}
+    .hero-visual img{width:100%;height:100%;position:absolute;inset:0;object-fit:cover;opacity:.72}
+    .hero-visual:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,12,13,.9),transparent 65%),linear-gradient(90deg,rgba(12,14,15,.25),transparent)}
+    .visual-tag{position:absolute;z-index:1;left:24px;top:24px;padding:9px 13px;background:rgba(15,17,18,.75);border:1px solid #495047;border-radius:9px;font-size:10px;letter-spacing:1px;text-transform:uppercase}
+    .visual-bottom{position:absolute;z-index:1;left:28px;right:28px;bottom:26px;display:flex;justify-content:space-between;align-items:end;gap:20px}
+    .visual-bottom h3{font-size:23px;line-height:1.25;max-width:260px}
+    .visual-bottom p{font-size:12px;color:#c1c7c8;margin-top:8px}
+    .round-arrow{width:46px;height:46px;flex:none;display:grid;place-items:center;background:var(--accent);color:#12160c;border-radius:50%;font-size:22px}
+    .stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#131618}
+    .stats-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+    .stat{padding:25px 24px;border-right:1px solid var(--line)}
+    .stat:first-child{padding-left:0}.stat:last-child{border:0}
+    .stat strong{font-size:27px;letter-spacing:-1px;display:block}
+    .stat strong span{color:var(--accent)}
+    .stat p{font-size:11px;color:var(--muted);margin-top:2px}
+    section{padding:88px 0}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:36px}
+    .section-head h2{font-size:clamp(29px,4vw,43px);letter-spacing:-1.7px;line-height:1.15;max-width:540px}
+    .section-head p{max-width:390px;color:var(--muted);font-size:13px}
+    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .service-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:27px;min-height:255px;display:flex;flex-direction:column;transition:border .2s,transform .2s}
+    .service-card:hover{border-color:#687b46;transform:translateY(-4px)}
+    .service-icon{width:48px;height:48px;display:grid;place-items:center;border-radius:14px;background:#252d20;color:var(--accent);font-size:23px;margin-bottom:25px}
+    .service-card h3{font-size:19px;margin-bottom:9px;letter-spacing:-.5px}
+    .service-card p{font-size:12px;color:var(--muted);margin-bottom:22px}
+    .service-link{margin-top:auto;color:var(--accent);font-size:12px;font-weight:800;display:flex;align-items:center;gap:9px}
+    .process{background:#141719}
+    .process-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px;align-items:start}
+    .process-intro p{color:var(--muted);font-size:13px;margin:20px 0 25px;max-width:370px}
+    .steps{border-top:1px solid var(--line)}
+    .step{display:grid;grid-template-columns:50px 1fr;gap:17px;padding:22px 0;border-bottom:1px solid var(--line)}
+    .step-num{font-size:12px;color:var(--accent);font-weight:800;padding-top:3px}
+    .step h3{font-size:16px;margin-bottom:5px}
+    .step p{font-size:12px;color:var(--muted)}
+    .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+    .why-visual{min-height:390px;border-radius:24px;overflow:hidden;position:relative;background:#252a2d}
+    .why-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.8}
+    .why-visual:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(13,15,16,.65),transparent 70%)}
+    .why-label{position:absolute;z-index:1;bottom:22px;left:24px;font-size:12px;background:rgba(14,16,17,.8);padding:10px 14px;border-radius:10px}
+    .why-copy h2{font-size:clamp(30px,4vw,44px);line-height:1.15;letter-spacing:-1.6px}
+    .why-copy>p{color:var(--muted);font-size:13px;margin:17px 0 25px}
+    .benefit{display:flex;gap:13px;margin:17px 0}
+    .check{width:25px;height:25px;border-radius:50%;background:#28321e;color:var(--accent);display:grid;place-items:center;flex:none;font-size:13px}
+    .benefit h4{font-size:13px;margin-bottom:3px}
+    .benefit p{font-size:11px;color:var(--muted)}
+    .cta{padding:0 0 88px}
+    .cta-panel{border-radius:26px;background:var(--accent);color:#161b10;padding:45px 50px;display:flex;align-items:center;justify-content:space-between;gap:35px;position:relative;overflow:hidden}
+    .cta-panel:after{content:"";position:absolute;width:270px;height:270px;border:1px solid rgba(22,27,16,.15);border-radius:50%;right:28%;top:-150px;box-shadow:0 0 0 35px rgba(22,27,16,.04),0 0 0 70px rgba(22,27,16,.03)}
+    .cta-panel h2{font-size:clamp(27px,4vw,40px);line-height:1.15;letter-spacing:-1.4px;max-width:570px;position:relative;z-index:1}
+    .cta-panel p{font-size:12px;margin-top:10px;opacity:.75;position:relative;z-index:1}
+    .cta-panel .btn{background:#151a10;color:white;white-space:nowrap;position:relative;z-index:1}
+    .contact-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px}
+    .contact-copy h2{font-size:40px;letter-spacing:-1.5px;line-height:1.15}
+    .contact-copy>p{font-size:13px;color:var(--muted);margin:17px 0 28px}
+    .contact-detail{display:flex;align-items:center;gap:13px;margin:18px 0;font-size:13px}
+    .contact-detail .service-icon{width:39px;height:39px;margin:0;font-size:17px}
+    .contact-detail small{display:block;color:var(--muted);font-size:10px}
+    form{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:28px}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+    .field{display:flex;flex-direction:column;gap:7px;margin-bottom:15px}
+    .field.full{grid-column:1/-1}
+    label{font-size:11px;color:#c4c9cd;font-weight:700}
+    input,select,textarea{width:100%;background:#101315;border:1px solid #343a3f;border-radius:10px;padding:13px 14px;color:var(--text);outline:none;font-size:12px}
+    input:focus,select:focus,textarea:focus{border-color:var(--accent)}
+    textarea{resize:vertical;min-height:95px}
+    select option{background:#171a1d}
+    .form-note{font-size:10px;color:var(--muted);margin-top:12px}
+    .form-success{display:none;padding:12px 14px;border-radius:10px;background:#26331b;color:var(--accent);font-size:12px;margin-top:12px}
+    footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-size:10px}
+    .footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center}
+    .footer-inner a:hover{color:var(--accent)}
+    .footer-links{display:flex;gap:20px}
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .65s,transform .65s}
+    .reveal.visible{opacity:1;transform:none}
+    @media(max-width:950px){.nav-links{gap:15px}.phone{display:none}.hero-grid{gap:30px}.hero-visual{min-height:390px}.process-grid{gap:35px}.contact-grid{gap:30px}}
+    @media(max-width:760px){
+      .container{width:min(var(--max),calc(100% - 30px))}.topbar .container{justify-content:center}.topbar span:last-child{display:none}
+      .nav{height:68px}.menu-toggle{display:block}.nav-actions .btn{display:none}
+      .nav-links{display:none;position:absolute;top:68px;left:0;right:0;background:#15181a;padding:22px 25px 25px;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start;gap:18px}
+      .nav-links.open{display:flex}.nav-links a{font-size:14px}
+      .hero{padding:48px 0}.hero-grid{grid-template-columns:1fr;gap:32px}h1{letter-spacing:-2px}.hero-copy{font-size:14px}
+      .hero-visual{min-height:350px}.trust-row{gap:15px}.trust-item{font-size:10px}
+      .stats-grid{grid-template-columns:1fr 1fr}.stat{padding:18px 14px;border-bottom:1px solid var(--line)}.stat:nth-child(2){border-right:0}.stat:nth-child(3){padding-left:0;border-bottom:0}.stat:nth-child(4){border-bottom:0}
+      section{padding:65px 0}.section-head{display:block}.section-head p{margin-top:14px}.services-grid{grid-template-columns:1fr}.service-card{min-height:unset;padding:24px}.service-icon{margin-bottom:17px}
+      .process-grid,.why-grid,.contact-grid{grid-template-columns:1fr;gap:32px}.why-visual{min-height:320px}.cta{padding-bottom:65px}.cta-panel{padding:32px 25px;display:block}.cta-panel .btn{margin-top:22px}
+      .contact-copy h2{font-size:34px}form{padding:20px}.form-grid{grid-template-columns:1fr;gap:0}.field.full{grid-column:auto}
+      .footer-inner{align-items:flex-start;flex-direction:column}.footer-links{flex-wrap:wrap}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}.reveal{opacity:1;transform:none}}
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container">
+      <span><i class="dot"></i> Працюємо по місту Хмельницький</span>
+      <span>Пн–Сб: 09:00–18:00 &nbsp; · &nbsp; Виїзд на замір за домовленістю</span>
+    </div>
+  </div>
+  <header>
+    <div class="container nav">
+      <a class="logo" href="#home" aria-label="Балкон Про — на головну"><span class="logo-mark">Б</span><span>БАЛКОН ПРО<small>МОНТАЖ • СКЛІННЯ • РЕМОНТ</small></span></a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#services">Послуги</a><a href="#about">Про нас</a><a href="#process">Як працюємо</a><a href="#contacts">Контакти</a>
+      </nav>
+      <div class="nav-actions"><a class="phone" href="tel:+380933536379">+38 (093) 35 36 379</a><a class="btn" href="#contacts">Замовити прорахунок ↗</a><button class="menu-toggle" id="menuToggle" aria-label="Відкрити меню" aria-expanded="false">☰</button></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <div class="eyebrow">Балкони під ключ</div>
+          <h1>Ваш балкон.<br><em>Новий рівень</em><br>комфорту.</h1>
+          <p class="hero-copy">Встановлення, скління, монтаж і демонтаж балконів. Продумані рішення, акуратна робота та увага до кожної деталі.</p>
+          <div class="hero-buttons"><a class="btn" href="#contacts">Розрахувати вартість <span>↗</span></a><a class="btn btn-outline" href="#services">Наші послуги <span>↓</span></a></div>
+          <div class="trust-row">
+            <div class="trust-item"><span class="trust-icon">⌂</span><span>Рішення під<br>ваше помешкання</span></div>
+            <div class="trust-item"><span class="trust-icon">✓</span><span>Охайний монтаж<br>і демонтаж</span></div>
+            <div class="trust-item"><span class="trust-icon">◷</span><span>Терміни<br>за домовленістю</span></div>
+          </div>
+        </div>
+        <div class="hero-visual reveal">
+          <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85" alt="Сучасний інтер'єр із великими вікнами та виходом на балкон" />
+          <div class="visual-tag"><i class="dot"></i> Сучасні рішення для дому</div>
+          <div class="visual-bottom"><div><h3>Більше світла.<br>Більше простору.</h3><p>Від першого заміру до готового результату</p></div><a class="round-arrow" href="#services" aria-label="Переглянути послуги">↘</a></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="stats"><div class="container stats-grid">
+      <div class="stat"><strong>01<span>.</span></strong><p>Індивідуальний підхід</p></div>
+      <div class="stat"><strong>02<span>.</span></strong><p>Комплексні роботи</p></div>
+      <div class="stat"><strong>03<span>.</span></strong><p>Зрозумілий кошторис</p></div>
+      <div class="stat"><strong>04<span>.</span></strong><p>Увага до деталей</p></div>
+    </div></div>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-head reveal"><div><div class="eyebrow">Що ми робимо</div><h2>Послуги для вашого балкона</h2></div><p>Від демонтажу старих конструкцій до облаштування нового, функціонального простору.</p></div>
+        <div class="services-grid">
+          <article class="service-card reveal"><div class="service-icon">▤</div><h3>Скління балконів</h3><p>Підбір віконних систем для комфорту, світла та захисту від негоди.</p><a class="service-link" href="#contacts" data-service="Скління балконів">Дізнатися більше <span>↗</span></a></article>
+          <article class="service-card reveal"><div class="service-icon">⌂</div><h3>Монтаж під ключ</h3><p>Встановлення конструкцій, герметизація та продумане облаштування балкона.</p><a class="service-link" href="#contacts" data-service="Монтаж балкона під ключ">Дізнатися більше <span>↗</span></a></article>
+          <article class="service-card reveal"><div class="service-icon">⚒</div><h3>Демонтаж</h3><p>Демонтаж старого скління та елементів балкона з попередньою оцінкою робіт.</p><a class="service-link" href="#contacts" data-service="Демонтаж балкона">Дізнатися більше <span>↗</span></a></article>
+          <article class="service-card reveal"><div class="service-icon">▧</div><h3>Обшивка та утеплення</h3><p>Внутрішнє оздоблення та утеплення з урахуванням стану конструкції.</p><a class="service-link" href="#contacts" data-service="Обшивка та утеплення">Дізнатися більше <span>↗</span></a></article>
+          <article class="service-card reveal"><div class="service-icon">⌁</div><h3>Ремонт балкона</h3><p>Оновлення оздоблення та усунення зношених елементів після огляду.</p><a class="service-link" href="#contacts" data-service="Ремонт балкона">Дізнатися більше <span>↗</span></a></article>
+          <article class="service-card reveal"><div class="service-icon">↗</div><h3>Винос та розширення</h3><p>Консультація щодо можливих рішень, технічних обмежень і безпеки.</p><a class="service-link" href="#contacts" data-service="Винос або розширення балкона">Дізнатися більше <span>↗</span></a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="process" id="process">
+      <div class="container process-grid">
+        <div class="process-intro reveal"><div class="eyebrow">Просто та зрозуміло</div><h2 style="font-size:clamp(30px,4vw,44px);line-height:1.15;letter-spacing:-1.6px">Від першого дзвінка до готового балкона</h2><p>Пояснюємо кожен етап, узгоджуємо обсяг робіт і допомагаємо підібрати рішення під ваші потреби.</p><a class="btn" href="#contacts">Обговорити проєкт ↗</a></div>
+        <div class="steps reveal">
+          <div class="step"><div class="step-num">01 /</div><div><h3>Заявка та консультація</h3><p>З'ясовуємо ваші побажання, тип балкона та потрібні роботи.</p></div></div>
+          <div class="step"><div class="step-num">02 /</div><div><h3>Заміри й оцінка</h3><p>Оглядаємо об'єкт, уточнюємо технічні умови та обсяг робіт.</p></div></div>
+          <div class="step"><div class="step-num">03 /</div><div><h3>Кошторис і погодження</h3><p>Узгоджуємо матеріали, вартість і орієнтовні терміни.</p></div></div>
+          <div class="step"><div class="step-num">04 /</div><div><h3>Монтаж або демонтаж</h3><p>Виконуємо погоджені роботи та перевіряємо результат.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container why-grid">
+        <div class="why-visual reveal"><img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1100&q=85" alt="Сучасне житло з лаконічним оздобленням" loading="lazy"><div class="why-label">Функціональність у кожній деталі</div></div>
+        <div class="why-copy reveal"><div class="eyebrow">Чому обирають нас</div><h2>Якісний результат починається з деталей</h2><p>Ми прагнемо, щоб процес був зрозумілим, а результат — відповідав вашим очікуванням.</p>
+          <div class="benefit"><span class="check">✓</span><div><h4>Підбір під ваші потреби</h4><p>Не шаблонне рішення, а варіант під конкретний об'єкт.</p></div></div>
+          <div class="benefit"><span class="check">✓</span><div><h4>Прозоре узгодження робіт</h4><p>Обсяг робіт і кошторис обговорюємо до початку.</p></div></div>
+          <div class="benefit"><span class="check">✓</span><div><h4>Охайність на об'єкті</h4><p>Дбайливо ставимося до простору та деталей монтажу.</p></div></div>
+          <div class="benefit"><span class="check">✓</span><div><h4>Зв'язок на кожному етапі</h4><p>Ви розумієте, що відбувається і який наступний крок.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="cta"><div class="container"><div class="cta-panel reveal"><div><h2>Плануєте оновити балкон?</h2><p>Розкажіть про свою задачу — допоможемо визначитися з наступним кроком.</p></div><a class="btn" href="#contacts">Отримати консультацію ↗</a></div></div></div>
+
+    <section id="contacts">
+      <div class="container contact-grid">
+        <div class="contact-copy reveal"><div class="eyebrow">Зв'яжіться з нами</div><h2>Обговорімо ваш проєкт</h2><p>Залиште заявку — і ми зв'яжемося з вами, щоб уточнити деталі та зорієнтувати щодо робіт.</p>
+          <div class="contact-detail"><span class="service-icon">☎</span><div><small>Телефон</small><a href="tel:+380935336379">+38 (093) 353-63-79</a></div></div>
+          <div class="contact-detail"><span class="service-icon">◷</span><div><small>Графік роботи</small><span>Пн–Сб, 09:00–18:00</span></div></div>
+          <div class="contact-detail"><span class="service-icon">⌖</span><div><small>Зона роботи</small><span>М.Хмельницький</span></div></div>
+        </div>
+        <form id="contactForm" class="reveal"
+      action="https://formsubmit.app/f/67kxcfw2c8"
+      method="POST">
+
+  <div class="form-grid">
+    <div class="field">
+      <label for="name">Ваше ім'я *</label>
+      <input id="name" name="name" type="text"
+             placeholder="Як до вас звертатися?" required />
+    </div>
+
+    <div class="field">
+      <label for="phone">Номер телефону *</label>
+      <input id="phone" name="phone" type="tel"
+             placeholder="+380..." required />
+    </div>
+
+    <div class="field full">
+      <label for="service">Яка послуга цікавить?</label>
+      <select id="service" name="service">
+        <option value="Не визначився">Оберіть послугу</option>
+        <option>Скління балконів</option>
+        <option>Монтаж балкона під ключ</option>
+        <option>Демонтаж балкона</option>
+        <option>Обшивка та утеплення</option>
+        <option>Ремонт балкона</option>
+        <option>Винос або розширення балкона</option>
+      </select>
+    </div>
+
+    <div class="field full">
+      <label for="message">Коментар (необов'язково)</label>
+      <textarea id="message" name="message"
+                placeholder="Коротко опишіть, що потрібно зробити..."></textarea>
+    </div>
+  </div>
+
+  <input type="text" name="_gotcha"
+         style="display:none" tabindex="-1"
+         autocomplete="off" />
+
+   <button class="btn" type="submit" style="width:100%">
+     Надіслати заявку ↗
+   </button>
+
+   <p class="form-note">
+     Натискаючи кнопку, ви погоджуєтеся на зв'язок щодо вашого запиту.
+   </p>
+ </form>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="container footer-inner"><a class="logo" href="#home"><span class="logo-mark">Б</span><span>БАЛКОН ПРО<small>МОНТАЖ • СКЛІННЯ • РЕМОНТ</small></span></a><span>© <span id="year"></span> Балкон Про. Усі права захищені.</span><div class="footer-links"><a href="#services">Послуги</a><a href="#contacts">Контакти</a><a href="#home">На початок ↑</a></div></div></footer>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(open));
+      menuToggle.textContent = open ? '×' : '☰';
+    });
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.textContent = '☰';
+    }));
+
+    // Автоматично підставляємо обрану послугу у форму.
+    document.querySelectorAll('[data-service]').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('service').value = link.dataset.service;
+      });
+    });
+
+    // Плавна поява блоків під час прокручування.
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

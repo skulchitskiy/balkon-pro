@@ -3,12 +3,231 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Приклади робіт Балкон Про: скління, утеплення та ремонт балконів у Хмельницькому. Дізнайтеся про наші послуги та залиште заявку.">
-  <meta name="theme-color" content="#142536">
-  <title> Наші роботи — балкони у Хмельницькому | TopBalkon </title>
+  <meta name="description" content="Приклади робіт Балкон Про: ремонт, скління та облаштування балконів до і після.">
+  <title>Наші роботи — Балкон Про</title>
 
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-  
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f6f8;
+      color: #172536;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .topbar {
+      background: #142536;
+      color: #fff;
+      padding: 18px 20px;
+    }
+
+    .nav {
+      max-width: 1120px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      color: #fff;
+      font-size: 23px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .nav-link {
+      display: inline-block;
+      color: #fff;
+      border: 1px solid #536577;
+      padding: 9px 15px;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    .nav-link:hover {
+      background: #263e54;
+    }
+
+    .hero {
+      padding: 42px 20px 20px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      margin: 0 0 12px;
+      color: #142536;
+      font-size: clamp(30px, 5vw, 42px);
+      line-height: 1.2;
+    }
+
+    .hero p {
+      max-width: 680px;
+      margin: auto;
+      color: #536577;
+    }
+
+    .works-gallery {
+      max-width: 1120px;
+      margin: 10px auto 50px;
+      padding: 20px;
+    }
+
+    .works-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+
+    .work-project {
+      min-width: 0;
+      padding: 22px;
+      border: 1px solid #e1e7ec;
+      border-radius: 14px;
+      background: #fff;
+      box-shadow: 0 5px 16px rgba(20, 37, 54, 0.08);
+    }
+
+    .work-project h2 {
+      margin: 0 0 18px;
+      color: #142536;
+      font-size: 23px;
+    }
+
+    .project-photos {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .project-photos.two-photos {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      max-width: 760px;
+    }
+
+    .work-card {
+      min-width: 0;
+      margin: 0;
+      overflow: hidden;
+      border: 1px solid #e1e7ec;
+      border-radius: 10px;
+      background: #fff;
+    }
+
+    .work-card img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      background: #e9edf1;
+    }
+
+    .work-card figcaption {
+      padding: 12px 8px;
+      text-align: center;
+      font-weight: 700;
+      color: #142536;
+    }
+
+    .work-label {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    .before-label {
+      background: #64748b;
+      color: #fff;
+    }
+
+    .after-label {
+      background: #e9a23b;
+      color: #142536;
+    }
+
+    .contact {
+      padding: 32px 20px;
+      background: #142536;
+      color: #fff;
+      text-align: center;
+    }
+
+    .contact h2 {
+      margin: 0 0 10px;
+      font-size: 26px;
+    }
+
+    .contact p {
+      margin: 8px 0;
+    }
+
+    .phone {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 12px 20px;
+      border-radius: 8px;
+      background: #e9a23b;
+      color: #142536;
+      font-weight: 700;
+    }
+
+    footer {
+      padding: 16px;
+      background: #0d1b29;
+      color: #cbd5e1;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    @media (max-width: 800px) {
+      .project-photos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .work-project {
+        padding: 16px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .nav {
+        align-items: flex-start;
+      }
+
+      .hero {
+        padding-top: 30px;
+      }
+
+      .works-gallery {
+        padding: 12px;
+      }
+
+      .work-project {
+        padding: 12px;
+      }
+
+      .work-project h2 {
+        font-size: 20px;
+      }
+
+      .project-photos,
+      .project-photos.two-photos {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -21,85 +240,83 @@
 
   <main>
     <section class="hero">
-      <div class="hero-inner">
-        <div class="eyebrow">Комфорт починається з балкона</div>
-        <h1>Наші роботи</h1>
-        <p>
-          Скління, утеплення та ремонт балконів.
-          Допоможемо перетворити ваш балкон на охайний і зручний простір.
-        </p>
-        <a class="button" href="index.html#contactForm">
-          Замовити консультацію ↗
-        </a>
+      <h1>Наші роботи</h1>
+      <p>
+        Реальні приклади ремонту, скління та облаштування балконів
+        від «Балкон Про».
+      </p>
+    </section>
+
+    <section class="works-gallery">
+      <div class="works-grid">
+
+        <article class="work-project">
+          <h2>Робота №1 — до та після</h2>
+          <div class="project-photos">
+            <figure class="work-card">
+              <img src="1.jpg" alt="Балкон до ремонту" loading="lazy">
+              <figcaption><span class="work-label before-label">До ремонту</span></figcaption>
+            </figure>
+
+            <figure class="work-card">
+              <img src="2.jpg" alt="Балкон після ремонту, вигляд 1" loading="lazy">
+              <figcaption><span class="work-label after-label">Після ремонту</span></figcaption>
+            </figure>
+
+            <figure class="work-card">
+              <img src="3.jpg" alt="Балкон після ремонту, вигляд 2" loading="lazy">
+              <figcaption><span class="work-label after-label">Після ремонту</span></figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="work-project">
+          <h2>Робота №2</h2>
+          <div class="project-photos two-photos">
+            <figure class="work-card">
+              <img src="4.jpg" alt="Балкон, вигляд 1" loading="lazy">
+              <figcaption>Вигляд 1</figcaption>
+            </figure>
+
+            <figure class="work-card">
+              <img src="6.jpg" alt="Той самий балкон, вигляд 2" loading="lazy">
+              <figcaption>Вигляд 2</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="work-project">
+          <h2>Робота №3 — до та після</h2>
+          <div class="project-photos">
+            <figure class="work-card">
+              <img src="5.jpg" alt="Балкон до ремонту" loading="lazy">
+              <figcaption><span class="work-label before-label">До ремонту</span></figcaption>
+            </figure>
+
+            <figure class="work-card">
+              <img src="7.jpg" alt="Балкон після ремонту, вигляд 1" loading="lazy">
+              <figcaption><span class="work-label after-label">Після ремонту</span></figcaption>
+            </figure>
+
+            <figure class="work-card">
+              <img src="8.jpg" alt="Балкон після ремонту, вигляд 2" loading="lazy">
+              <figcaption><span class="work-label after-label">Після ремонту</span></figcaption>
+            </figure>
+          </div>
+        </article>
+
       </div>
     </section>
 
-    <section class="section">
-      <div class="section-heading">
-        <h2>Що ми робимо</h2>
-        <p>Підбираємо рішення відповідно до ваших потреб і бюджету.</p>
-      </div>
-
-      
-<section class="works-gallery">
-  <h2>Наші роботи</h2>
-  <p class="works-intro">
-    Реальні приклади скління, утеплення та ремонту балконів від «Балкон Про».
-  </p>
-
- 
-
-
-      <div class="grid">
-        <article class="card">
-          <div class="card-number">ПОСЛУГА 01</div>
-          <h3>Скління балконів</h3>
-          <p>
-            Встановлення віконних конструкцій для захисту від вітру,
-            опадів і вуличного пилу.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="card-number">ПОСЛУГА 02</div>
-          <h3>Утеплення та обшивка</h3>
-          <p>
-            Утеплення й оздоблення балкона для більшого комфорту
-            та охайного вигляду.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="card-number">ПОСЛУГА 03</div>
-          <h3>Ремонт балконів</h3>
-          <p>
-            Оновлення балкона з урахуванням стану конструкцій
-            та побажань власника.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="card-number">ПОСЛУГА 04</div>
-          <h3>Балкон під ключ</h3>
-          <p>
-            Комплекс робіт від планування до завершального оздоблення.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <section class="bottom-cta">
-      <h2>Плануєте оновити балкон?</h2>
-      <p>Зв'яжіться з нами, щоб обговорити ваш проєкт.</p>
-      <a class="button" href="index.html#contactForm">
-        Залишити заявку ↗
-      </a>
+    <section class="contact">
+      <h2>Потрібен ремонт балкона?</h2>
+      <p>Зателефонуйте нам — проконсультуємо та допоможемо з вашим балконом.</p>
+      <a class="phone" href="tel:+380933536379">+38 093 353 63 79</a>
     </section>
   </main>
 
-  <footer class="footer">
-    <p>© Балкон Про</p>
-    <a href="index.html">Повернутися на головну</a>
+  <footer>
+    © Балкон Про — ремонт, скління та облаштування балконів
   </footer>
 </body>
 </html>
